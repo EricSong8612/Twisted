@@ -1,0 +1,55 @@
+body {
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+#header {
+  width: 96%;
+  margin: auto;
+}
+
+#logo {
+  float: left;
+  width: 40px;
+  height: 40px;
+}
+
+.navigation {
+  margin: auto;
+  width: 390px;
+}
+
+.navigation ul {
+  width: 100%;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation li {
+  display: inline-block;
+  margin: 20px;
+}
+
+#facebook {
+  float: right;
+  width: 20px;
+  height: 20px;
+  margin-top: 20px;
+}
+
+#title {
+  color: rgb(68,168,18);
+  font-size: 10rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#headline {
+  font-size: 1.5rem;
+  font-weight: lighter;
+  text-align: center;
+}

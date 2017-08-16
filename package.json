@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "Twisted",
+  "description": "twisted marketing site",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Waverly & Co",
   "dependencies": {
     "gatsby": "^1.8.10",
     "gatsby-link": "^1.6.5",

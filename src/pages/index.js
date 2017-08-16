@@ -1,12 +1,8 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import "../css/index.css";
 
-const IndexPage = () =>
+export default () =>
   <div>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
+    <h1 id='title'><em>twisted</em></h1>
+    <p id='headline'>The best frozon yogurt in Long Island</p>
   </div>
-
-export default IndexPage
