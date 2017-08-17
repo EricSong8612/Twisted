@@ -11,11 +11,11 @@ const Header = () =>
       <img id='logo' src='https://s3.amazonaws.com/twisted-site/twisted_logo.png' alt='logo'/>
     </Link>
     <Link to='/'>
-      <img id='facebook' src='https://s3.amazonaws.com/twisted-site/fb.png' alt='facebook'/>
+      <img id='facebook' src='https://s3.amazonaws.com/twisted-site/facebook.png' alt='facebook'/>
     </Link>
     <div className='navigation'>
       <ul>
-        <li><Link to='/'>Menu</Link></li>
+        <li><Link to='/menu/'>Menu</Link></li>
         <li><Link to='/'>Location</Link></li>
         <li><Link to='/'>Hours</Link></li>
         <li><Link to='/'>Contact Us</Link></li>
