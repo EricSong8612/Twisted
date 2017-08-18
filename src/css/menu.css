@@ -1,13 +1,36 @@
-.flexContainer {
+.clear {
+  clear: both;
+}
 
+#menuBar {
+  list-style: none;
+  width: 15%;
+  padding: 0;
+  margin: 20px auto;
+  float: left;
+}
+
+#menuBar li {
+  padding: 10px;
+}
+
+#menuBar li:hover {
+  font-weight: bold;
+  border-bottom: 3px solid rgb(68,168,18);
+  cursor:pointer;
+}
+
+.flexContainer {
+  float: right;
+  width: 80%;
 }
 
 .flexItem {
   display: inline-block;
-  width: 40%;
+  width: 25%;
   margin: 10px;
   padding: 20px;
-  border: 1px solid #00f;
+  text-align: center;
 }
 
 img {

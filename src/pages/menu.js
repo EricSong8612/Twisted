@@ -12,32 +12,77 @@ export default class Menu extends React.Component {
   state={}
 
   componentWillMount() {
+    client.getContentTypes()
+    .then((response) => {
+      let responseObject = {};
+      response.items.sort(function(a, b){return a.description - b.description});
+      //console.log(response.items);
+      response.items.map(item => {
+        responseObject[item.name] = item;
+        this.setState({menubar:responseObject});
+      })
+    })
+    .catch(console.error)
+
     client.getEntries({
-      'content_type': '6XwpTaSiiI2Ak2Ww0oi6qa'
+      'content_type': 'frozenYogurt'
     })
     .then((response) => {
       let responseObject = {};
       response.items.map(item => {
-        responseObject[item.fields.title] = item.fields;
-        this.setState({...responseObject});
+       // console.log(item);
+        responseObject[item.fields.name] = item.fields;
+        this.setState({menuContent:responseObject});
       })
     })
     .catch(console.error);
   }
 
-  renderState() {
-    let entriesObject = this.state;
-    let entriesArray = [];
-    for (let prop in entriesObject) {
-      entriesArray.push(entriesObject[prop]);
+  updateContent(type) {
+    //console.log(type);
+    client.getEntries({
+      'content_type': type
+    })
+    .then((response) => {
+      let responseObject = {};
+      response.items.map(item => {
+        //console.log(item);
+        responseObject[item.fields.name] = item.fields;
+        this.setState({menuContent:responseObject});
+      })
+    })
+    .catch(console.error);
+  }
+
+  renderMenuBar() {
+    let barObject = this.state.menubar;
+    //console.log(barObject);
+    let barArray = [];
+    for (let prop in barObject) {
+      barArray.push(barObject[prop]);
     }
-    console.log(entriesArray);
     return(
-      entriesArray.map(entry =>
-        <div key={entry.title} className='flexItem'>
-          <h3>{entry.title}</h3>
-          <img src={entry.icon.fields.file.url}></img>
-          <h3>{entry.categoryDescription}</h3>
+      barArray.map(item =>
+        <li key={item.name}
+          onClick={this.updateContent.bind(this, `${item.sys.id}`)}>{item.name}
+        </li>
+      )
+    )
+  }
+
+  renderMenuContent() {
+    let contentObject = this.state.menuContent;
+    //console.log(contentObject);
+    let contentArray = [];
+    for (let prop in contentObject) {
+      contentArray.splice(0, 0, contentObject[prop]);
+    }
+    //console.log(contentArray);
+    return(
+      contentArray.map(content =>
+        <div key={content.name} className='flexItem'>
+          <img src={content.img.fields.file.url}></img>
+          <h3>{content.name}</h3>
         </div>
       )
     )
@@ -45,8 +90,16 @@ export default class Menu extends React.Component {
 
   render() {
     return(
-      <div className='flexContainer'>
-        {this.renderState.bind(this)()}
+      <div>
+        <div>
+          <ul id='menuBar'>
+            {this.renderMenuBar.bind(this)()}
+          </ul>
+        </div>
+        <div className='flexContainer'>
+          {this.renderMenuContent.bind(this)()}
+        </div>
+        <div className='clear'></div>
       </div>
     )
   }
