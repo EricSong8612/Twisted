@@ -16,7 +16,7 @@ const Header = () =>
     <div className='navigation'>
       <ul>
         <li><Link to='/menu/'>Menu</Link></li>
-        <li><Link to='/'>Location</Link></li>
+        <li><Link to='/location/'>Location</Link></li>
         <li><Link to='/'>Hours</Link></li>
         <li><Link to='/'>Contact Us</Link></li>
       </ul>
