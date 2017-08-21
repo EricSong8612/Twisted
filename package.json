@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Waverly & Co",
   "dependencies": {
+    "bulma": "^0.5.1",
     "contentful": "^4.6.0",
     "gatsby": "^1.8.10",
     "gatsby-link": "^1.6.5",
